@@ -2,6 +2,7 @@ import 'package:Brandie/core/basic_features.dart';
 import 'package:Brandie/core/utils/logger_util.dart';
 
 class SmartPostController extends GetxController {
+  RxInt selectedPage = 0.obs;
   RxDouble progress = 0.0.obs;
   RxString currentLoadingStep = AppString.generatingYourSalesLink.obs;
   bool isDialogOpened = false;

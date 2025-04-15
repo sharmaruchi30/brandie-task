@@ -16,7 +16,7 @@ class AppImages {
   static const String imgPost1 = "assets/images/post_1.png";
   static const String imgPost2 = "assets/images/post_2.png";
   static const String imgPost3 = "assets/images/post_3.png";
-  static const String imgProfile = "assets/images/img_profile.png";
+  static const String imgProfile = "assets/images/img_profile.jpg";
   static const String imgIg = "assets/images/img_ig.png";
   static const String imgIgStory = "assets/images/img_ig_story.png";
   static const String imgFb = "assets/images/img_fb.png";

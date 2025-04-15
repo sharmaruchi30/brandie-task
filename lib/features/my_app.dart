@@ -60,7 +60,6 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
       );
 }
 
-
 class AppScrollPhysics extends ScrollBehavior {
   @override
   ScrollPhysics getScrollPhysics(BuildContext context) {
