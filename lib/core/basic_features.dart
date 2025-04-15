@@ -1,7 +1,7 @@
 export 'package:flutter/foundation.dart';
 export 'package:flutter_easyloading/flutter_easyloading.dart';
 export 'package:get/get.dart';
-export 'package:project_name_here/core/theme/color_scheme_extension.dart';
+export 'package:Brandie/core/theme/color_scheme_extension.dart';
 export 'constants/app_colors.dart';
 export 'constants/app_images.dart';
 export 'constants/app_string.dart';

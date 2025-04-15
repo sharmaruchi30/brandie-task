@@ -45,7 +45,8 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
               builder: (context, child) => MediaQuery(
                 data: MediaQuery.of(context)
                     .copyWith(textScaler: const TextScaler.linear(1.0)),
-                child: child!,
+                child: ScrollConfiguration(
+                    behavior: AppScrollPhysics(), child: child!),
               ),
             ),
             theme: AppThemeData.lightTheme,
@@ -57,4 +58,17 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
           ),
         ),
       );
+}
+
+
+class AppScrollPhysics extends ScrollBehavior {
+  @override
+  ScrollPhysics getScrollPhysics(BuildContext context) {
+    return const BouncingScrollPhysics(); // Replace with your desired ScrollPhysics
+  }
+
+  Widget buildViewportChrome(
+      BuildContext context, Widget child, AxisDirection axisDirection) {
+    return child; // Removes overscroll glow effect
+  }
 }

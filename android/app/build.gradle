@@ -42,7 +42,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.flutter.projectbase.flutter_project_base"
+        applicationId "com.brandietask.dev"
         // You can update the following values to match your application needs.
         // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-gradle-build-configuration.
         minSdkVersion 24

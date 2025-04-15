@@ -119,7 +119,7 @@ class MyButton extends StatelessWidget {
         backgroundColor: btnBgColor ?? AppColors.primaryColor,
         disabledBackgroundColor: AppColors.greyColor,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(cornerRadius ?? Dimensions.r12),
+          borderRadius: BorderRadius.circular(cornerRadius ?? Dimensions.r30),
         ),
       ),
       onPressed: onPressed,

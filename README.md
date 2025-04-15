@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="asset/images/app_icon.png" alt="App Logo" width="120"/>
+  <img src="assets/images/app_icon.png" alt="App Logo" width="120"/>
 </p>
 
 <h1 align="center">App Name</h1>

@@ -7,6 +7,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../basic_features.dart';
 import '../helpers/animation_helper.dart';
+import '../widgets/custom_button.dart';
 import '../widgets/custom_image.dart';
 import 'logger_util.dart';
 
@@ -37,6 +38,142 @@ class AppUtils {
 
   static void closeKeyboard() => FocusManager.instance.primaryFocus?.unfocus();
 
+  static void goFullScreen() =>
+      SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
+
+  static Future<void> exitFullScreen() =>
+      SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: [
+        SystemUiOverlay.top,
+        SystemUiOverlay.bottom,
+      ]);
+
+  static Future<void> showCustomDialog({
+    String? title,
+    String? descriptions,
+    String? contentText,
+    double? contentTextFontSize,
+    bool barrierDismiss = true,
+    bool mergeDefaultWithContent = false,
+    String? firstButtonText,
+    Widget? myWidget,
+    String? icon,
+    Color? backgroundColor,
+    Function? onDialogCloseFunction,
+    VoidCallback? firstButtonFunction,
+    VoidCallback? secondButtonFunction,
+    String? secondButtonText,
+  }) async =>
+      await showGeneralDialog(
+        context: Get.context!,
+        barrierDismissible: barrierDismiss,
+        barrierLabel: "Meow",
+        barrierColor: Theme.of(Get.context!)
+            .scaffoldBackgroundColor
+            .withValues(alpha: 0.9),
+        transitionDuration: const Duration(milliseconds: 350),
+        transitionBuilder: (_, animation, __, child) {
+          return ScaleTransition(
+              scale:
+                  Tween<double>(begin: 0.9, end: 1.0).animate(CurvedAnimation(
+                parent: animation,
+                curve: Curves.easeOut,
+              )),
+              child: FadeTransition(
+                opacity: Tween<double>(begin: 0.0, end: 1.0).animate(
+                  CurvedAnimation(
+                    parent: animation,
+                    curve: Curves.easeOut,
+                  ),
+                ),
+                child: child,
+              ));
+        },
+        pageBuilder: (context, _, __) => Center(
+          child: Container(
+            width: Get.width * 0.90,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(Dimensions.r15),
+              color: backgroundColor ?? Get.theme.scaffoldBackgroundColor,
+            ),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                Padding(
+                  padding: EdgeInsets.all(Dimensions.commonPaddingForScreen)
+                      .copyWith(top: 0),
+                  child: myWidget != null && !mergeDefaultWithContent
+                      ? myWidget
+                      : Column(
+                          children: [
+                            // Top Icon
+                            if (icon != null)
+                              CustomSvgAssetImage(
+                                image: icon,
+                                width: Dimensions.w130,
+                                height: Dimensions.w130,
+                              ),
+
+                            // Description Text
+                            if (descriptions != null)
+                              Text(
+                                descriptions,
+                                textAlign: TextAlign.center,
+                                style: fontStyleRegular15.copyWith(
+                                    color: Get.theme.colorScheme.hintTextColor),
+                              ),
+                            SizedBox(
+                              height: Dimensions.h2,
+                            ),
+
+                            // Content Text
+                            if (contentText != null)
+                              Text(
+                                contentText,
+                                textAlign: TextAlign.center,
+                                style: fontStyleMedium12.copyWith(
+                                    color: Get.theme.colorScheme.textColor,
+                                    fontSize: contentTextFontSize),
+                              ),
+
+                            if (myWidget != null) myWidget,
+                            if (firstButtonText != null ||
+                                secondButtonText != null)
+                              SizedBox(
+                                height: Dimensions.h20,
+                              ),
+                            if (firstButtonText != null ||
+                                secondButtonText != null)
+                              Row(
+                                children: [
+                                  // First Button
+                                  if (firstButtonText != null)
+                                    Flexible(
+                                      child: MyButton(
+                                          onPressed: () {
+                                            Get.back();
+                                            firstButtonFunction?.call();
+                                          },
+                                          cornerRadius: Dimensions.r50,
+                                          textStyle:
+                                              fontStyleSemiBold14.copyWith(
+                                                  color: Colors.white,
+                                                  fontSize: Dimensions.sp13),
+                                          title: firstButtonText),
+                                    ),
+                                  SizedBox(
+                                    width: Dimensions.w10,
+                                  ),
+                                ],
+                              )
+                          ],
+                        ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ).then((_) => onDialogCloseFunction?.call());
+
   static showSnackBar(
       {bool isSuccess = false,
       String? title,
@@ -63,11 +200,10 @@ class AppUtils {
               Row(
                 children: [
                   // Action Icon
-                  // CustomSvgAssetImage(
-                  //   image: AppImages.icCheckCircle,
-                  //   width: Dimensions.w30,
-                  //   height: Dimensions.w30,
-                  // ),
+                  Icon(
+                    Icons.check_circle_outline_sharp,
+                    size: Dimensions.w30,
+                  ),
 
                   // Title Text
                   Padding(
@@ -81,14 +217,6 @@ class AppUtils {
                           color: AppColors.textColor),
                     ),
                   ),
-                  Spacer(),
-
-                  // Trailing Icon
-                  // CustomSvgAssetImage(
-                  //   image: AppImages.icRightArrowCircle,
-                  //   width: Dimensions.w30,
-                  //   height: Dimensions.w30,
-                  // ),
                 ],
               ),
 

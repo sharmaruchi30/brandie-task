@@ -1,8 +1,6 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:project_name_here/core/basic_features.dart';
 
 class MyRoundCornerAssetImage extends StatelessWidget {
   final double height;
@@ -75,7 +73,7 @@ class CustomSvgAssetImage extends StatelessWidget {
                   : null,
               fit: BoxFit.contain,
               height: size ?? height,
-              width:size?? width,
+              width: size ?? width,
             ),
     );
   }
@@ -84,6 +82,7 @@ class CustomSvgAssetImage extends StatelessWidget {
 class CustomAssetImage extends StatelessWidget {
   final double? height;
   final double? width;
+  final double? size;
   final Color? imageColor;
   final Function? onTap;
   final String image;
@@ -92,9 +91,10 @@ class CustomAssetImage extends StatelessWidget {
     super.key,
     this.height,
     this.width,
+    this.size,
     this.imageColor,
     required this.image,
-    required this.onTap,
+     this.onTap,
   });
 
   @override
@@ -108,8 +108,8 @@ class CustomAssetImage extends StatelessWidget {
       child: Image.asset(
         image,
         fit: BoxFit.contain,
-        height: height,
-        width: width,
+        height: size ?? height,
+        width: size ?? width,
         color: imageColor,
       ),
     );
