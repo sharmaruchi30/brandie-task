@@ -240,7 +240,7 @@ class AppUtils {
     final Uri encodedURl = Uri.parse(link);
 
     try {
-      await launchUrl(encodedURl, mode: LaunchMode.inAppWebView);
+      await launchUrl(encodedURl, mode: LaunchMode.externalApplication);
     } catch (e) {
       logger.e('Error launching URL: $e');
     }

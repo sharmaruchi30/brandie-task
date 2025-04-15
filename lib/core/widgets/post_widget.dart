@@ -195,15 +195,29 @@ class PostWidget extends StatelessWidget {
                                                   SizedBox(
                                                     height: Dimensions.h10,
                                                   ),
-                                                  LinearProgressIndicator(
-                                                    color:
-                                                        AppColors.primaryColor,
-                                                    value: controller
-                                                        .progress.value,
-                                                    minHeight: Dimensions.h12,
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            Dimensions.r12),
+                                                  TweenAnimationBuilder<double>(
+                                                    tween: Tween<double>(
+                                                      begin: 0,
+                                                      end: controller
+                                                          .progress.value,
+                                                    ),
+                                                    duration: const Duration(
+                                                        milliseconds: 500),
+                                                    builder: (context, value,
+                                                        child) {
+                                                      return LinearProgressIndicator(
+                                                        value: value,
+                                                        color: AppColors
+                                                            .primaryColor,
+                                                        minHeight:
+                                                            Dimensions.h12,
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(
+                                                                    Dimensions
+                                                                        .r12),
+                                                      );
+                                                    },
                                                   )
                                                 ],
                                               ),

@@ -22,6 +22,7 @@ class SmartPostController extends GetxController {
         currentLoadingStep.value = loadingSteps[steps.indexOf(step)];
         progress.value = step;
         if (step == 1.0) {
+          Get.back();
           AppUtils.openLink(link: "https://www.instagram.com/");
           break;
         }
