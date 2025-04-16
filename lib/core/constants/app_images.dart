@@ -16,7 +16,7 @@ class AppImages {
   static const String imgPost1 = "assets/images/post_1.png";
   static const String imgPost2 = "assets/images/post_2.png";
   static const String imgPost3 = "assets/images/post_3.png";
-  static const String imgProfile = "assets/images/img_profile.png";
+  static const String imgProfile = "assets/images/img_profile.jpg";
   static const String imgIg = "assets/images/img_ig.png";
   static const String imgIgStory = "assets/images/img_ig_story.png";
   static const String imgFb = "assets/images/img_fb.png";
@@ -33,7 +33,17 @@ class AppImages {
   static const String icEdit = "assets/icons/ic_edit.svg";
   static const String icCross = "assets/icons/ic_cross.svg";
   static const String imgLoading = "assets/images/img_loading.png";
+  static const String icPlay = "assets/icons/ic_play.svg";
+  static const String icPause = "assets/icons/ic_pause.svg";
+
+  // Lottie Animations
+  static const String animAudioWave = "assets/anim/audio_wave.json";
+
+  //Audios
+  static const String badHabitsAudio = "assets/audios/EdSheeranBadHabits.wav";
+  static const String vogueAudio = "assets/audios/MadonnaVogue.wav";
+  static const String unstoppableAudio = "assets/audios/SiaUnstoppable.wav";
 
   // Videos
-  static const String icLoadingVideo = "assets/videos/loading_video.mp4";
+  static const String loadingVideo = "assets/videos/loading_video.mp4";
 }

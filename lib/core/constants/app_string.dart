@@ -21,6 +21,7 @@ class AppString {
   static const String by = "by";
   static const String editCaption = "Edit Caption";
   static const String save = "Save";
+  static const String goToYourProfile = "Go to your profile";
 
   static const String snackBarPositiveTitle = "Success";
   static const String snackBarNegativeTitle = "Failed";

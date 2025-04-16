@@ -1,5 +1,7 @@
 import 'package:Brandie/core/model/ui_model/post_ui_model.dart';
+import 'package:Brandie/core/widgets/custom_button.dart';
 import 'package:Brandie/features/bottom_nav/bottom_tabs/home_tab/home_tabs/smart_post/controllers/smart_post_controller.dart';
+import 'package:Brandie/features/bottom_nav/controllers/bottom_nav_controller.dart';
 import 'package:flutter/material.dart';
 import '../basic_features.dart';
 import 'caption_widget.dart';
@@ -7,9 +9,15 @@ import 'custom_image.dart';
 import 'music_recommendation_widget.dart';
 
 class PostWidget extends StatelessWidget {
+  final int index;
+  final int total;
   final PostUiModel post;
 
-  const PostWidget({super.key, required this.post});
+  const PostWidget(
+      {super.key,
+      required this.post,
+      required this.index,
+      required this.total});
 
   @override
   Widget build(BuildContext context) {
@@ -39,9 +47,43 @@ class PostWidget extends StatelessWidget {
                     children: [
                       Row(
                         children: [
-                          CustomAssetImage(
-                            image: AppImages.imgProfile,
-                            size: Dimensions.w50,
+                          ClipRRect(
+                            borderRadius: BorderRadius.circular(Dimensions.r50),
+                            child: CustomAssetImage(
+                              onTap: () {
+                                AppUtils.showCustomDialog(
+                                    backgroundColor: Colors.transparent,
+                                    myWidget: Column(
+                                      children: [
+                                        MyRoundCornerAssetImage(
+                                          image: AppImages.imgProfile,
+                                          height: Get.width / 2,
+                                          width: Get.width / 2,
+                                          radius: Dimensions.r12,
+                                        ),
+                                        SizedBox(
+                                          height: Dimensions.h10,
+                                        ),
+                                        MyButton(
+                                          miniWidth: Get.width / 2,
+                                          cornerRadius: Dimensions.r12,
+                                          height: Dimensions.h30,
+                                          onPressed: () {
+                                            Get.back();
+                                            Get.find<BottomNavController>(
+                                                    tag: AppString
+                                                        .bottomNavControllerTag)
+                                                .selectedScreenIndex
+                                                .value = 4;
+                                          },
+                                          title: AppString.goToYourProfile,
+                                        )
+                                      ],
+                                    ));
+                              },
+                              image: AppImages.imgProfile,
+                              size: Dimensions.w50,
+                            ),
                           ),
                           SizedBox(
                             width: Dimensions.w5,
@@ -99,7 +141,7 @@ class PostWidget extends StatelessWidget {
                             borderRadius:
                                 BorderRadius.circular(Dimensions.r12)),
                         child: Text(
-                          "1 of 3",
+                          "$index of $total",
                           style: fontStyleBold10.apply(
                               color: AppColors.whiteColor),
                         ),
@@ -113,6 +155,9 @@ class PostWidget extends StatelessWidget {
                     MusicRecommendationWidget(
                       title: post.recommendedMusicTitle,
                       by: post.recommendedMusicBy,
+                      onMusic: () async {
+
+                      },
                     ),
                     SizedBox(
                       height: Dimensions.h10,

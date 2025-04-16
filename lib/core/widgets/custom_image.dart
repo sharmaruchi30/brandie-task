@@ -1,3 +1,4 @@
+import 'package:Brandie/core/basic_features.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -105,6 +106,7 @@ class CustomAssetImage extends StatelessWidget {
               onTap?.call();
             }
           : null,
+      borderRadius: BorderRadius.circular(Dimensions.r100),
       child: Image.asset(
         image,
         fit: BoxFit.contain,
