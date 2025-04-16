@@ -12,7 +12,7 @@
 
 ## 📱 Preview
 ### <a href="https://drive.google.com/file/d/101R7rsr05dnNXziP53X9JKTnn9dIhENv/view?usp=sharing"><ins>Full Video Demo</ins></a>
-
+### <a href="https://drive.google.com/drive/u/1/folders/1JsxPKJo9vAjf7YyRcWFnl4TUHLnuhH4A"><ins>Download the APK</ins></a>
 
 ### Quick GIF Demo
 <img src = "assets/demo_ss/Brandie_gif.gif" width = "280" height = "600" >'
