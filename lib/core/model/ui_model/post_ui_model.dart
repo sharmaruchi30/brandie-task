@@ -12,6 +12,7 @@ class PostUiModel {
       required this.recommendedMusicBy,
       required this.captionText});
 
+
   static List<PostUiModel> dummyPostData = [
     PostUiModel(
         postImage: AppImages.imgPost1,
