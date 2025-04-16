@@ -155,6 +155,9 @@ class PostWidget extends StatelessWidget {
                     MusicRecommendationWidget(
                       title: post.recommendedMusicTitle,
                       by: post.recommendedMusicBy,
+                      onMusic: () async {
+
+                      },
                     ),
                     SizedBox(
                       height: Dimensions.h10,

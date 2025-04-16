@@ -33,7 +33,17 @@ class AppImages {
   static const String icEdit = "assets/icons/ic_edit.svg";
   static const String icCross = "assets/icons/ic_cross.svg";
   static const String imgLoading = "assets/images/img_loading.png";
+  static const String icPlay = "assets/icons/ic_play.svg";
+  static const String icPause = "assets/icons/ic_pause.svg";
+
+  // Lottie Animations
+  static const String animAudioWave = "assets/anim/audio_wave.json";
+
+  //Audios
+  static const String badHabitsAudio = "assets/audios/EdSheeranBadHabits.wav";
+  static const String vogueAudio = "assets/audios/MadonnaVogue.wav";
+  static const String unstoppableAudio = "assets/audios/SiaUnstoppable.wav";
 
   // Videos
-  static const String icLoadingVideo = "assets/videos/loading_video.mp4";
+  static const String loadingVideo = "assets/videos/loading_video.mp4";
 }

@@ -21,13 +21,19 @@ class SmartPost extends StatelessWidget {
         child: Stack(
           children: [
             PageView.builder(
-              onPageChanged: (value) => controller.selectedPage.value = value,
+              onPageChanged: (value) {
+                controller.selectedPage.value = value;
+                controller.onPageChanged(value);
+              },
               scrollDirection: Axis.vertical,
               itemCount: PostUiModel.dummyPostData.length,
-              itemBuilder: (context, index) => PostWidget(
-                post: PostUiModel.dummyPostData[index],
-                index: index + 1,
-                total: PostUiModel.dummyPostData.length,
+              itemBuilder: (context, index) => GestureDetector(
+                onTap: () => controller.togglePlayAndPause(),
+                child: PostWidget(
+                  post: PostUiModel.dummyPostData[index],
+                  index: index + 1,
+                  total: PostUiModel.dummyPostData.length,
+                ),
               ),
             ),
             Positioned(
@@ -63,6 +69,27 @@ class SmartPost extends StatelessWidget {
                     ),
                   ),
                 ),
+              ),
+            ),
+            GestureDetector(
+              onTap: () => controller.togglePlayAndPause(),
+              child: Obx(
+                () => controller.showIcon.value
+                    ? Center(
+                        child: CustomSvgAssetImage(
+                          image: controller.isPaused.value
+                              ? AppImages.icPlay
+                              : AppImages.icPause,
+                          color: Colors.white,
+                          size: 60,
+                        )
+                            .animate(
+                                controller:
+                                    controller.audioIconAnimationController)
+                            .fadeIn(duration: 300.ms)
+                            .fadeOut(delay: 300.ms),
+                      )
+                    : const SizedBox.shrink(),
               ),
             ),
           ],

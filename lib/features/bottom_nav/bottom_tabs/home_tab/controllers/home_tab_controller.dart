@@ -19,7 +19,7 @@ class HomeTabController extends GetxController
 
   @override
   void onInit() {
-    videoController = VideoPlayerController.asset(AppImages.icLoadingVideo,
+    videoController = VideoPlayerController.asset(AppImages.loadingVideo,
         videoPlayerOptions: VideoPlayerOptions(mixWithOthers: true))
       ..setLooping(true)
       ..setVolume(0.0)
