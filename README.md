@@ -11,9 +11,14 @@
 ---
 
 ## 📱 Preview
+### <a href="https://drive.google.com/file/d/101R7rsr05dnNXziP53X9JKTnn9dIhENv/view?usp=sharing"><u>Video Demo</u></a>
 
-<!-- Add screenshots or GIFs here later -->
-
+### Screenshots
+<img src = "assets/demo_ss/ss1.jpg" width = "280" height = "600" >'
+<img src = "assets/demo_ss/ss2.jpg" width = "280" height = "600" >'
+<img src = "assets/demo_ss/ss3.jpg" width = "280" height = "600" >'
+<img src = "assets/demo_ss/ss4.jpg" width = "280" height = "600" >'
+<img src = "assets/demo_ss/ss5.jpg" width = "280" height = "600" >'
 ---
 
 ## 🚀 Getting Started
