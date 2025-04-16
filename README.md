@@ -11,7 +11,11 @@
 ---
 
 ## 📱 Preview
-### <a href="https://drive.google.com/file/d/101R7rsr05dnNXziP53X9JKTnn9dIhENv/view?usp=sharing"><u>Video Demo</u></a>
+### <a href="https://drive.google.com/file/d/101R7rsr05dnNXziP53X9JKTnn9dIhENv/view?usp=sharing"><ins>Full Video Demo</ins></a>
+
+
+### Quick GIF Demo
+<img src = "assets/demo_ss/Brandie_gif.gif" width = "280" height = "600" >'
 
 ### Screenshots
 <img src = "assets/demo_ss/ss1.jpg" width = "280" height = "600" >'
