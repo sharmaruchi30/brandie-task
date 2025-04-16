@@ -27,12 +27,10 @@
 
 ## 🚀 Getting Started
 > Commands to run the application
-- flutter pub get
-- flutter run
+- `flutter pub get`
+- `flutter run`
 
-- Prerequisites
-- How to install dependencies
-- How to run the app on emulator/device
+
 
 ---
 
@@ -96,10 +94,35 @@ lib/
 
 ---
 
-## 🔧 Tech Stack
+## 📦 Dependencies
+### Flutter SDK
+- `flutter`
+- `cupertino_icons`
 
-- Flutter
-- GetX (for state management)
+### Utils
+- `flutter_screenutil`
+- `logger`
+
+### Navigation & Notification
+- `url_launcher`
+
+### Media (Image, Permission, Video)
+- `video_player`
+- `permission_handler`
+- `flutter_svg`
+- `readmore`
+
+### State Management
+- `get`
+
+### Additional UI Elements (Toast, Popup, Addition Display)
+- `fluttertoast`
+- `flutter_animate`
+- `flutter_native_splash`
+- `flutter_launcher_icons`
+- `rename`
+
+
 
 ---
 
